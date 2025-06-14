@@ -1,0 +1,231 @@
+body.route-page {
+    min-height: 100vh;
+    background: url('/static/catalog/img/bg/route-bg.jpg') center center/cover no-repeat fixed;
+    position: relative;
+}
+
+body.route-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.route-container {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 80px auto 0;
+}
+
+/* Стили для карточек достопримечательностей */
+.attraction-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    backdrop-filter: blur(10px);
+}
+
+.attraction-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.attraction-card:last-child {
+    margin-bottom: 0;
+}
+
+.attraction-info {
+    padding: 25px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.attraction-info h3 {
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.attraction-info p {
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Стили для фильтров */
+.filter-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(10px);
+}
+
+.filter-title {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.category-filter {
+    background-color: rgba(77, 102, 142, 0.9);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 12px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    font-weight: 500;
+    backdrop-filter: blur(5px);
+}
+
+.category-filter:hover {
+    background-color: rgba(61, 85, 120, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.category-filter.active {
+    background-color: rgba(61, 85, 120, 0.95);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для списка мест */
+.places-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.place-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.place-label {
+    display: block;
+    cursor: pointer;
+}
+
+.place-name {
+    color: #2c3e50;
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.place-category {
+    color: #4D668E;
+    font-weight: 500;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.place-description {
+    color: #4a5568;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+/* Стили для кнопки */
+.btn-main {
+    background-color: rgba(77, 102, 142, 0.9);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.btn-main:hover {
+    background-color: rgba(61, 85, 120, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .route-container {
+        padding: 15px;
+        margin-top: 60px;
+    }
+
+    .filter-box {
+        padding: 25px;
+    }
+
+    .places-list {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .place-card {
+        padding: 25px;
+    }
+
+    .btn-main {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .filter-buttons {
+        gap: 10px;
+    }
+
+    .category-filter {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .place-name {
+        font-size: 20px;
+    }
+
+    .place-description {
+        font-size: 14px;
+    }
+}

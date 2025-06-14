@@ -1,0 +1,76 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-4">Маршруты</h1>
+    
+    <!-- Поиск и фильтры -->
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <form method="get" class="d-flex">
+                <input type="text" name="search" class="form-control me-2" placeholder="Поиск маршрутов..." value="{{ request.GET.search }}">
+                <button type="submit" class="btn btn-primary">Поиск</button>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="btn-group">
+                <a href="{% url 'routes' %}" class="btn btn-outline-primary {% if not request.GET.sort %}active{% endif %}">Все</a>
+                <a href="?sort=popular" class="btn btn-outline-primary {% if request.GET.sort == 'popular' %}active{% endif %}">Популярные</a>
+                <a href="?sort=new" class="btn btn-outline-primary {% if request.GET.sort == 'new' %}active{% endif %}">Новые</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Список маршрутов -->
+    <div class="row">
+        {% for route in routes %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                {% if route.image %}
+                <img src="{{ route.image.url }}" class="card-img-top" alt="{{ route.title }}">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ route.title }}</h5>
+                    <p class="card-text">{{ route.description|truncatewords:30 }}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <a href="{% url 'route_detail' route.id %}" class="btn btn-primary">Подробнее</a>
+                        <small class="text-muted">
+                            <i class="fas fa-user"></i> {{ route.user.username }}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="text-center">Маршруты не найдены</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Пагинация -->
+    {% if routes.has_other_pages %}
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if routes.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ routes.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}">Предыдущая</a>
+            </li>
+            {% endif %}
+
+            {% for num in routes.paginator.page_range %}
+            <li class="page-item {% if routes.number == num %}active{% endif %}">
+                <a class="page-link" href="?page={{ num }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}">{{ num }}</a>
+            </li>
+            {% endfor %}
+
+            {% if routes.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ routes.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}">Следующая</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+{% endblock %} 

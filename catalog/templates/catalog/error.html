@@ -1,0 +1,16 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'catalog/css/error.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="error-container">
+    <h2>Ошибка</h2>
+    <div class="alert alert-danger">
+        {{ error_message }}
+    </div>
+    <a href="{% url 'select_places' %}" class="btn-main">Вернуться к выбору мест</a>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'catalog/css/catalog.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="catalog-container">
+    <h1>Каталог достопримечательностей</h1>
+
+    <div class="places-grid">
+        {% for place in places %}
+        <div class="place-card">
+            <h2>{{ place.name }}</h2>
+            <p>Категория: {{ place.get_category_display }}</p>
+            {% if place.description %}
+            <p>{{ place.description }}</p>
+            {% endif %}
+            <a href="{% url 'place_detail' place.id %}" class="btn-main">Подробнее</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

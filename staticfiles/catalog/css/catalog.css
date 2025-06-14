@@ -1,0 +1,694 @@
+/*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+ }
+ 
+ /*body {
+    margin: 0;
+    padding: 0;
+    padding-top: 80px; /* Примерно высота вашего хедера */
+    /*font-family: 'Gilroy';
+    background-color: #0B1D26; /* Будет виден по бокам если изображение узкое */
+    /*background-image: url('../img//bg/dostoprim.jpg');
+    background-position: center;
+    background-size:100% 100%; /* Фиксируем по высоте, по ширине автоматически */
+    /*background-repeat: no-repeat;
+    background-attachment: scroll;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden; /* Важно! Отключает горизонтальную прокрутку */
+    /*width: 100vw;}  Явно указываем ширину */
+
+ /* Отключаем стили main.css для каталога */
+body.catalog-page {
+    background-color: #0B1D26 !important;
+    background-image: url("{% static 'catalog/img/bg/dostoprim.jpg' %}") !important;
+    background-size: cover !important;
+    background-position: center !important;
+    min-height: 100vh;/*???*/
+ }
+
+ 
+ html {
+    scroll-behavior: smooth;
+  }
+ .logo {
+    color: #8B4513;
+    font-weight: 400;
+    font-size: 18px;
+    }
+
+.header-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-route, .btn-account {
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+.btn-route:hover, .btn-account:hover {
+    color: #FBD784;
+}
+
+
+ .catalog-hero {
+    height: 100vh;
+    width: 100%;
+    background: url('../img//bg/dostoprim.jpg') center center/cover no-repeat;
+    position: relative;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+ /* Контейнер для основного контента */
+main {
+    position: relative;
+    z-index: 1;
+    background-color: #0B1D26; /* Фон для контента */
+    /*margin-top: -300px; /* Поднимаем контент вверх */
+    /*padding-top: 350px; /* Компенсируем поднятие */
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+ /* BASE */
+.container-wide {
+   
+    max-width: 1790px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+   /* position: relative;  Добавляем для точного позиционирования */
+    /*z-index: 2;  Поднимаем контент над фоном */
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px; /* Ограничиваем ширину для лучшего отображения */
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+
+
+/* HEADER */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 15px;
+    padding-bottom: 100px;
+    overflow-x: hidden;
+    background-color: rgba(11, 29, 38, 0.9); /* Полупрозрачный фон */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 20px 0; /* Уменьшаем отступы */
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.nav-wrapper {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center; /* Центрируем по горизонтали */
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 32px;
+    /* Добавляем минимальный отступ */
+    margin-right: 20px;
+    /* Запрещаем сжатие логотипа */
+    flex-shrink: 0;
+}
+
+.nav {
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 20px;
+    margin-left: 150px;
+    flex-shrink: 0;
+    color: #8B4513;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.nav a {
+    color: #8B4513;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav a:hover {
+    color: #FBD784;
+}
+
+.nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    flex-wrap: nowrap;
+    gap: 40px;
+}
+
+.nav li + li {
+    margin-left: 0;
+}
+
+
+
+.museums-section {
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    background: url("{% static 'catalog/images/bg/Музеи фон.jpg' %}") center/cover no-repeat;
+    position: relative;
+    padding: 40px 0; /* Уменьшаем отступ сверху и снизу */
+}
+
+.museums-content {
+    z-index: 2;
+    margin: 0 auto;
+    padding: 5px 40px; 
+    position: relative; 
+    width: 90%;
+    max-width: 1200px;
+    justify-content: center;
+}
+
+.museums-title {
+    color: #F47648;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.museums-row {
+    margin-top: 24px; /* Уменьшаем отступ между рядами */
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 32px !important;
+}
+
+.museum-block {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+    /*width: 100%;
+    max-width: 700px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.museums-description {
+    color: #fff; /* или другой черный цвет */
+    font-size: 18px;
+    /* другие свойства */
+}
+.museum-block img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.museum-block-text {
+    padding: 24px;
+    color: #222;
+    flex-grow: 1; /* Добавлено для равномерного распределения высоты */
+}
+
+.museum-block-text h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.museum-block-text p {
+    font-size: 16px;
+    margin-bottom: 12px; /* Добавлено для отступа перед ссылкой */
+} 
+
+@media (max-width: 900px) {
+    .museums-row {
+        grid-template-columns: 1fr; /* по одному в строку */
+    }
+    .museum-block {
+        max-width: 100%;
+    }
+    .museums-dark-section {
+        padding: 40px 0 10px 0;
+    }
+} /*адаптивность под разные экраны*/
+.museums-dark-section {
+    background: #0F0F0F;
+    width: 100%;
+    min-height: auto; /* Убираем фиксированную минимальную высоту */
+    padding: 20px 0; /* Уменьшаем отступы */
+    margin-top: -20px; /* Добавляем отрицательный отступ для сближения с предыдущей секцией */
+}
+
+.museum-block a {
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.museum-block a:hover {
+    text-decoration: underline;
+}
+
+/* Секция религиозных достопримечательностей */
+.religious-section {
+    background: #fff;
+    width: 100%;
+    min-height: 100vh;
+    padding: 40px 0;
+    color: #0B1D26;
+}
+
+.religious-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.religious-title {
+    color: #F47648;
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.religious-description {
+    font-size: 18px;
+    color: #0B1D26;
+    margin-bottom: 48px;
+    max-width: 800px;
+}
+
+.religious-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.religious-block {
+    background: #0B1D26;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    display: flex;
+    flex-direction: column;
+}
+
+.religious-block img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.religious-block-text {
+    padding: 24px;
+    color: #fff;
+}
+
+.religious-block-text h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.religious-block-text p {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.religious-link {
+    color: #FBD784;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.religious-address {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.religious-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .religious-row {
+        grid-template-columns: 1fr;
+    }
+    .religious-block {
+        max-width: 100%;
+    }
+    .religious-section {
+        padding: 40px 0;
+    }
+} 
+
+
+.parks-hero {
+    background-image: url('../img/bg/фон\ парки.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 30vh;
+    position: relative;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.parks-hero::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, #000000);
+    z-index: 1;
+}
+
+.parks-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.parks-title {
+    font-size: 48px;
+    color: #FF6B35;
+    margin-bottom: 30px;
+    font-weight: 400;
+    max-width: 400px;
+}
+
+.parks-description {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #ffffff;
+    max-width: 400px;
+    margin-bottom: 40px;
+}
+
+.parks-section {
+    background-color: #000000;
+    padding: 20px 0;
+}
+
+.parks-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.parks-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.park-block {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.park-block img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.park-block-text {
+    padding: 24px;
+    color: #222;
+}
+
+.park-block-text h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.park-block-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.park-info {
+    font-size: 16px;
+    margin-top: 12px;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.park-info a {
+    color: #8B4513;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.park-info a:hover {
+    color: #FBD784;
+    text-decoration: underline;
+}
+
+.park-address {
+    font-size: 16px;
+    color: #666;
+    margin-top: 8px;
+
+
+}
+
+@media (max-width: 900px) {
+    .parks-row {
+        grid-template-columns: 1fr;
+    }
+    
+    .parks-title {
+        font-size: 36px;
+    }
+    
+    .parks-description {
+        font-size: 16px;
+    }
+    
+    .park-block img {
+        height: 200px;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .parks-title {
+        font-size: 28px;
+    }
+    
+    .parks-description {
+        font-size: 14px;
+    }
+    .park-block-text h3 {
+        font-size: 18px;
+    }
+    
+    .park-block-text p,
+    .park-info,
+    .park-address {
+        font-size: 14px;
+    }
+}
+.park-map-link {
+    color: #FBD784;
+    text-decoration: none;
+    }
+
+/* Медиа-запросы для адаптивности каталога */
+@media screen and (max-width: 768px) {
+    /* Header */
+    .header {
+        padding-top: 20px;
+    }
+
+    .nav-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav li + li {
+        margin-left: 0;
+    }
+
+    .header-actions {
+        position: static;
+        margin: 10px auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Музеи */
+    .museums-content {
+        padding: 20px;
+    }
+
+    .museums-title {
+        font-size: 36px;
+    }
+
+    .museums-description {
+        font-size: 16px;
+    }
+
+    .museums-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .museum-block {
+        flex-direction: column;
+    }
+
+    .museum-block img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Религиозные объекты */
+    .religious-content {
+        padding: 20px;
+    }
+
+    .religious-title {
+        font-size: 36px;
+    }
+
+    .religious-description {
+        font-size: 16px;
+    }
+
+    .religious-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .religious-block {
+        flex-direction: column;
+    }
+
+    .religious-block img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Парки */
+    .parks-content {
+        padding: 20px;
+    }
+
+    .parks-title {
+        font-size: 36px;
+    }
+
+    .parks-description {
+        font-size: 16px;
+    }
+
+    .parks-row {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+
+    .park-block {
+        flex-direction: column;
+    }
+
+    .park-block img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .museums-title,
+    .religious-title,
+    .parks-title {
+        font-size: 28px;
+    }
+
+    .btn-route,
+    .btn-account {
+        font-size: 16px;
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .museum-block-text h3,
+    .religious-block-text h3,
+    .park-block-text h3 {
+        font-size: 20px;
+    }
+
+    .museum-block-text p,
+    .religious-block-text p,
+    .park-block-text p {
+        font-size: 14px;
+    }
+}
+
+

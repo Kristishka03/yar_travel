@@ -1,0 +1,35 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+            <h1>{{ route.title }}</h1>
+            {% if route.image %}
+            <img src="{{ route.image.url }}" class="img-fluid rounded mb-4" alt="{{ route.title }}">
+            {% endif %}
+            <p class="lead">{{ route.description }}</p>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">Информация о маршруте</h5>
+                </div>
+                <div class="card-body">
+                    <p><strong>Автор:</strong> {{ route.user.username }}</p>
+                    <p><strong>Создан:</strong> {{ route.created_at|date:"d.m.Y" }}</p>
+                    {% if route.updated_at %}
+                    <p><strong>Обновлен:</strong> {{ route.updated_at|date:"d.m.Y" }}</p>
+                    {% endif %}
+                    
+                    {% if user == route.user %}
+                    <div class="mt-3">
+                        <a href="{% url 'edit_route' route.id %}" class="btn btn-primary">Редактировать</a>
+                        <a href="{% url 'delete_route' route.id %}" class="btn btn-danger" onclick="return confirm('Вы уверены, что хотите удалить этот маршрут?')">Удалить</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,51 @@
+{% extends 'catalog/base.html' %}
+{% load static %}
+
+{% block body_class %} class="select-places-page"{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'catalog/css/route.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="route-container">
+    <h2 class="route-title">Выберите места для посещения</h2>
+
+    <form method="post" id="select-places-form" action="{% url 'calculate_route' %}">
+        {% csrf_token %}
+
+        <div class="filter-box">
+            <h3 class="filter-title">Фильтровать по категориям:</h3>
+            <div class="filter-buttons">
+                <button type="button" class="category-filter active" data-category="all">Все места</button>
+                {% for category in categories %}
+                <button type="button" class="category-filter" data-category="{{ category }}">
+                    {{ category }}
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="places-list">
+            {% for place in places %}
+            <div class="place-card" data-category="{{ place.get_category_display }}">
+                <input type="checkbox" name="places" value="{{ place.id }}" id="place{{ place.id }}">
+                <label for="place{{ place.id }}" class="place-label">
+                    <h3 class="place-name">{{ place.name }}</h3>
+                    <p class="place-category"><strong>Категория:</strong> {{ place.get_category_display }}</p>
+                    {% if place.description %}
+                    <p class="place-description">{{ place.description }}</p>
+                    {% endif %}
+                </label>
+            </div>
+            {% endfor %}
+        </div>
+
+        <button type="submit" class="btn-main">Построить маршрут</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'catalog/js/route.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,389 @@
+/* Общие стили для страницы профиля */
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/pictures/4.png'); /* Затемнение и фон с корректным путем */
+    background-size: cover; /* Растягивает изображение, чтобы покрыть всю область */
+    background-position: center center; /* Центрирует изображение */
+    background-repeat: no-repeat; /* Предотвращает повторение */
+    background-attachment: fixed; /* Фиксирует фон при прокрутке */
+    background-color: #f0f2f5; /* Светлый фон для страницы (как запасной) */
+}
+
+.container.mt-5 {
+    margin-top: 80px; /* Отступ от верхнего меню */
+    max-width: 800px; /* Ограничение ширины контента */
+    padding: 20px;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для карточки */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header h3 {
+    color: #34495e;
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.profile-body p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.profile-body strong {
+    color: #2c3e50;
+    font-weight: 600;
+    min-width: 120px;
+    display: inline-block;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.profile-actions .btn {
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.profile-actions .btn-primary {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+.profile-actions .btn-primary:hover {
+    background-color: #43A047;
+    transform: translateY(-2px);
+}
+
+.profile-actions .btn-danger {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+}
+
+.profile-actions .btn-danger:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+
+/* Стили для неактивной кнопки */
+.profile-actions .btn-primary[disabled] {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    opacity: 0.8;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Медиа-запросы для адаптивности */
+@media screen and (max-width: 768px) {
+    .container.mt-5 {
+        margin-top: 60px;
+        padding: 15px;
+    }
+    .profile-card {
+        padding: 30px;
+    }
+    .profile-header h3 {
+        font-size: 28px;
+    }
+    .profile-body p, .profile-actions .btn {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+    .profile-actions {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container.mt-5 {
+        margin-top: 40px;
+        padding: 10px;
+    }
+    .profile-card {
+        padding: 20px;
+    }
+    .profile-header h3 {
+        font-size: 24px;
+    }
+    .profile-body p, .profile-actions .btn {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+}
+
+/* Стили для страницы профиля */
+.profile-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #D2B773;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Фиксируем меню вверху */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: #2c3e50;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.profile-info, .edit-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.15rem;
+    font-weight: 500;
+}
+
+.info-label {
+    min-width: 120px;
+    color: #4D668E;
+    font-weight: 600;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.info-value {
+    color: #222;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.btn-edit, .btn-save {
+    background: #4D668E;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 25px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+    width: 100%;
+}
+
+.btn-edit:hover, .btn-save:hover {
+    background: #3D5578;
+    transform: translateY(-2px);
+}
+
+.edit-form input {
+    width: 60%;
+    padding: 8px 10px;
+    border: 1px solid #bbb;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-left: 10px;
+}
+
+/* Стили для формы редактирования */
+.edit-form {
+    display: none; /* По умолчанию скрыта */
+}
+
+.edit-form.active {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form-group input {
+    padding: 12px 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #4D668E;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(77, 102, 142, 0.1);
+}
+
+/* Стили для секции маршрутов */
+.user-routes {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.user-routes h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.routes-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.route-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.route-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.route-name {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+}
+
+.route-date {
+    color: #718096;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.route-places {
+    margin-bottom: 20px;
+}
+
+.route-places h5 {
+    color: #4a5568;
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.route-places ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.route-places li {
+    color: #4a5568;
+    font-size: 14px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.route-places li:last-child {
+    border-bottom: none;
+}
+
+.route-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-danger {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #c53030;
+    transform: translateY(-2px);
+}
+
+.no-routes {
+    color: #718096;
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-content {
+        padding: 20px;
+    }
+
+    .routes-list {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-actions {
+        flex-direction: column;
+    }
+
+    .btn-main, .btn-secondary {
+        width: 100%;
+    }
+} 

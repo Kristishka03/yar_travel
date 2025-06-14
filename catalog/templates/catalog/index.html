@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Туристический Ярославль</title>
+    <link rel="stylesheet" href="/static/catalog/css/main.css">
+    <link rel="stylesheet" href="{% static 'catalog/fonts/Gilroy/stylesheet.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@500,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div>
+        <header class="header">
+            <nav class="nav-wrapper">
+                <div class="container-wide">
+                    <div class="row space-between align-center">
+                        <div class="logo">YAR TRAVEL</div>
+                        <div class="nav">
+                            <ul>
+                                <li><a href="{% url 'select_places' %}">Создать маршрут</a></li>
+                                <li><a href="{% url 'catalog' %}">Каталог достопримечательностей</a></li>
+                            </ul>
+                        </div>
+                        <div class="header-actions">
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'profile' %}" class="btn-account">Аккаунт</a>
+                            {% else %}
+                                <a href="{% url 'login' %}" class="btn-account">Войти</a>
+                                <a href="{% url 'register' %}" class="btn-register">Регистрация</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="hero-container">
+        <a href="#" class="hero">
+            <div class="hero-category"></div>
+            <h1 class="hero-title">Создай свой маршрут!</h1>
+            <p class="hero-scroll">scroll down</p>
+        </a>
+        </div>
+    </div>
+<main class="main">
+    <div class="container">
+        <article class="article">
+            <div class="article-text" data-number="01">
+                <div class="article-title">С чего начать?</div>
+                <p>Изучите популярные места города. 
+                В каталоге можно найти много интересной и 
+                полезной информации о Ярославле. Так вы 
+                сможете определиться с интересующими вас местами, 
+                которые хотите включить в свой маршрут.</p>
+            </div>
+            <div class="article-img">
+                <img src="{% static 'catalog/img/pictures/1.png' %}" alt="С чего начать?">
+            </div>
+        </article>
+        <article class="article">
+            <div class="article-text" data-number="02">
+                <div class="article-title">Что дальше?</div>
+                <p>Зайдите в раздел "Создать маршрут". Достопримечательности разделены на 3 категории, там вы сможете выбрать все места, которые вас заинтересовали. Всё очень просто!</p>
+            </div>
+            <div class="article-img">
+                <img src="{% static 'catalog/img/pictures/4.png' %}" alt="Что дальше?">
+            </div>
+        </article>
+        <article class="article">
+            <div class="article-text" data-number="03">
+                <div class="article-title">Почти готово!</div>
+                <p>Далее нажмите кнопку “Создать маршрут” и 
+                   сервис подберет для вас наиболее удобный 
+                   поход. С нами вы сможете легко находить 
+                   места в вашем маршруте</p>                
+            </div>
+            <div class="article-img">
+                <img src="{% static 'catalog/img/pictures/6.png' %}" alt="Почти готово!">
+            </div>
+        </article>
+    </div>
+</main>
+<script src="{% static 'catalog/js/main.js' %}"></script>
+</body>
+</html>
